@@ -33,3 +33,10 @@ The system tracks how many requests an IP makes within a short time window:
 THRESHOLD = 5
 TIME_WINDOW = 10
 COOLDOWN = 15
+## 📸 Screenshots
+
+### IDS Running
+![IDS Screenshot](screenshot1.png)
+
+### Logs Output
+![Logs Screenshot](screenshot2.png)
