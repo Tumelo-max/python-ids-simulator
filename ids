@@ -1,0 +1,35 @@
+import time
+
+LOG_FILE = "logs/ids.log"
+
+def log_event(message):
+    with open(LOG_FILE, "a") as f:
+        f.write(f"{time.ctime()} - {message}\n")
+
+if count >= THRESHOLD:
+    print(f"[HIGH] Suspicious activity from {ip} ({count} requests in 10s)")
+    log_event(f"HIGH ALERT - {ip} - {count} requests in 10s")
+
+elif count >= THRESHOLD - 2:
+    print(f"[MEDIUM] Unusual activity from {ip} ({count} requests)")
+    log_event(f"MEDIUM ALERT - {ip} - {count} requests")
+
+else:
+    print(f"[NORMAL] Traffic from {ip} ({count})")
+    log_event(f"NORMAL TRAFFIC - {ip} - {count}")
+
+
+def run():
+    print("Starting IDS monitoring...")
+
+    while True:
+        ip = input("Enter incoming IP (or type 'exit'): ")
+
+        if ip.lower() == "exit":
+            break
+
+        process_ip(ip)
+
+
+if __name__ == "__main__":
+    run()
